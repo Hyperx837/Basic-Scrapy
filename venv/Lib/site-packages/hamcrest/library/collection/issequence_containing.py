@@ -83,7 +83,5 @@ def has_items(*items):
     equality.
 
     """
-    matchers = []
-    for item in items:
-        matchers.append(wrap_matcher(item))
+    matchers = [wrap_matcher(item) for item in items]
     return IsSequenceContainingEvery(*matchers)
