@@ -12,10 +12,7 @@ class AnyOf(BaseMatcher):
         self.matchers = matchers
 
     def _matches(self, item):
-        for matcher in self.matchers:
-            if matcher.matches(item):
-                return True
-        return False
+        return any(matcher.matches(item) for matcher in self.matchers)
 
     def describe_to(self, description):
         description.append_list('(', ' or ', ')', self.matchers)

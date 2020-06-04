@@ -91,7 +91,5 @@ def contains_inanyorder(*items):
 
     """
 
-    matchers = []
-    for item in items:
-        matchers.append(wrap_matcher(item))
+    matchers = [wrap_matcher(item) for item in items]
     return IsSequenceContainingInAnyOrder(matchers)
